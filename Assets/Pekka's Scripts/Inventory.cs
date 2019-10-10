@@ -16,18 +16,6 @@ public class Inventory : MonoBehaviour
     public Transform hand;
     private PickUpItem currentItem;
 
-    public AudioClip pickUp;
-
-    AudioSource audioSource;
-
-
-
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        
-    }
 
     public void TakeItem(PickUpItem item) {
         if (currentItem != null)
@@ -35,7 +23,6 @@ public class Inventory : MonoBehaviour
             DropItem();
         }
         currentItem = item;
-        audioSource.PlayOneShot(pickUp);
 
         currentItem.transform.position = hand.transform.position;
         currentItem.GetComponent<Rigidbody>().isKinematic = true;
